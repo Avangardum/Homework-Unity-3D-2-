@@ -41,5 +41,11 @@ namespace Geekbrains.Editor.Test
 		private static void NewOpenForRigidBody()
 		{
 		}
+
+        [MenuItem("Geekbrains/Block")]
+        private static void Block()
+        {
+            EditorWindow.GetWindow<BlockWindow>(true, "Шindows заблокирован");
+        }
 	}
 }
