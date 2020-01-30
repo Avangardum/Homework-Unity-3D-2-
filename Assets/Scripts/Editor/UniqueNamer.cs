@@ -4,39 +4,43 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-public static class UniqueNamer
+namespace Geekbrains.Editor
 {
-    [MenuItem("Geekbrains/Дать объектам уникальные имена")]
-    static void GiveUniqueNames()
+    public static class UniqueNamer
     {
-        Dictionary<string, int> namesCount = new Dictionary<string, int>();
-        var allGameObjects = Object.FindObjectsOfType<GameObject>();
-        foreach (var gameObject in allGameObjects)
+        [MenuItem("Geekbrains/Дать объектам уникальные имена")]
+        static void GiveUniqueNames()
         {
-            if (namesCount.ContainsKey(gameObject.name))
+            Dictionary<string, int> namesCount = new Dictionary<string, int>();
+            var allGameObjects = Object.FindObjectsOfType<GameObject>();
+            foreach (var gameObject in allGameObjects)
             {
-                namesCount[gameObject.name]++;
-            }
-            else
-            {
-                namesCount.Add(gameObject.name, 1);
-            }
-        }
-
-        foreach (var pair in namesCount)
-        {
-            if (pair.Value > 1)
-            {
-                var gameObjects = allGameObjects.Where(x => x.name == pair.Key);
-                int number = 1;
-                foreach (var gameObject in gameObjects)
+                if (namesCount.ContainsKey(gameObject.name))
                 {
-                    gameObject.name += $"({number})";
-                    number++;
+                    namesCount[gameObject.name]++;
+                }
+                else
+                {
+                    namesCount.Add(gameObject.name, 1);
                 }
             }
-        }
 
-        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            foreach (var pair in namesCount)
+            {
+                if (pair.Value > 1)
+                {
+                    var gameObjects = allGameObjects.Where(x => x.name == pair.Key);
+                    int number = 1;
+                    foreach (var gameObject in gameObjects)
+                    {
+                        gameObject.name += $"({number})";
+                        number++;
+                    }
+                }
+            }
+
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
     }
+
 }

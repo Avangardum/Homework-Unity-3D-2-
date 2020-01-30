@@ -68,10 +68,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Editor\BallEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\BlockWindow.cs" />
+    <Compile Include="Assets\Scripts\Editor\Blocker.cs" />
     <Compile Include="Assets\Scripts\Editor\CreateCone.cs" />
     <Compile Include="Assets\Scripts\Editor\CreateWayPointEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\MenuItems.cs" />
     <Compile Include="Assets\Scripts\Editor\MyWindow.cs" />
+    <Compile Include="Assets\Scripts\Editor\SceneClearer.cs" />
     <Compile Include="Assets\Scripts\Editor\TestBehaviourEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\UniqueNamer.cs" />
     <Reference Include="UnityEditor.TestRunner">
